@@ -1,1 +1,3 @@
-Netflix나 Whatcha 와 영화 정보 사이트 클론 코딩을 통한 기능 구현 및 개선
+Netflix나 Watcha 와 같은 영화 정보 사이트 기능을 구현한 WATFLECHA
+
+참고 : https://github.com/Fastcampus-project-WATFLECHA/WATFLECHA
