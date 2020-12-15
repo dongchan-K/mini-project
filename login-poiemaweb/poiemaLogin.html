@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Signin</title>
+  <link rel="stylesheet prefetch"
+    href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,latin-ext" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-image: url(https://poiemaweb.com/fastcampus/assets/images/background.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+    .signin-form,
+    .signup-form {
+      width: 100%;
+      max-width: 380px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border-radius: 10px;
+      padding: 50px 30px 10px;
+    }
+    .signup-form {
+      display: none;
+    }
+    .title {
+      width: 100%;
+      line-height: 40px;
+      font-size: 32px;
+      letter-spacing: 2px;
+      color: #ed2553;
+      position: relative;
+    }
+    .title:before {
+      content: '';
+      width: 5px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -30px;
+      background: #ed2553;
+    }
+    .input-container {
+      margin-top: 45px;
+      position: relative;
+    }
+    .input-container label,
+    .input-container input {
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 300;
+    }
+    .input-container input {
+      width: 100%;
+      height: 60px;
+      border: none;
+      background: transparent;
+      position: relative;
+      outline: none;
+    }
+    .input-container label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 60px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    /*
+      input 요소에 포거스가 들어온 상태 또는 input 요소가 valid인 상태이면 레이블을 input 요소 위로 올리면서 크기를 줄인다.
+      input 요소에 require가 적용되어 있어서 값이 입력되어 있으면 valid 상태가 된다.
+      input 요소가 valid 상태에도 트랜스폼을 적용해서 값이 입력된 input 요소에서 포커스가 빠져도 레이블이 원상태로 복귀하지 않도록 한다.
+      */
+    .input-container input:focus+label,
+    .input-container input:valid+label {
+      transform: translate3d(-12%, -50%, 0) scale(0.75);
+    }
+    .input-container .bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: #757575;
+      width: 100%;
+      height: 1px;
+    }
+    .input-container .bar:before,
+    .input-container .bar:after {
+      content: '';
+      position: absolute;
+      background: #ed2553;
+      width: 0;
+      height: 2px;
+      transition: 0.3s ease;
+    }
+    .input-container .bar:before {
+      left: 50%;
+    }
+    .input-container .bar:after {
+      right: 50%;
+    }
+    .input-container input:focus~.bar:before,
+    .input-container input:focus~.bar:after {
+      width: 50%;
+    }
+    .signin-button,
+    .signup-button {
+      width: 100%;
+      line-height: 64px;
+      font-weight: 900;
+      font-size: 18px;
+      margin: 65px 0 20px;
+      border: 3px solid transparent;
+      background-color: #ed2553;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+    .signin-button:disabled,
+    .signup-button:disabled {
+      background-color: transparent;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.2);
+    }
+    .signin-message,
+    .signup-message {
+      width: 100%;
+      max-height: 32px;
+      position: absolute;
+      left: 0;
+      top: 315px;
+      font-size: 14px;
+      font-weight: 300;
+      color: #ed2553;
+      padding: 0 30px;
+      /* multiline ellipsis */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      /* 라인수 */
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+    .signup-link {
+      margin: 10px 0 20px;
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 18px;
+      font-weight: 300;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .signup-link>a {
+      color: #ed2553;
+    }
+    /* @media screen and (max-width: 768px) {
+        .login-container,
+        .reset-password-container {
+          width: 90%;
+        }
+      } */
+  </style>
+</head>
+<body>
+  <form class="signin-form" novalidate>
+    <div class="title">SIGNIN</div>
+    <div class="input-container">
+      <input type="text" id="signin-email" required autocomplete="off" />
+      <label for="signin-email">email</label>
+      <span class="bar"></span>
+    </div>
+    <div class="input-container">
+      <input type="password" id="signin-password" required autocomplete="off" />
+      <label for="signin-password">Password</label>
+      <span class="bar"></span>
+    </div>
+    <div class="signin-message"></div>
+    <!-- <button class="signin-button">SIGNIN</button> -->
+    <button class="signin-button" disabled>SIGNIN</button>
+    <div class="signup-link">Not a member? <a href="javascript:void(0);">Signup now</a></div>
+  </form>
+  <form class="signup-form" novalidate>
+    <div class="title">SIGNUP</div>
+    <div class="input-container">
+      <input type="text" id="signup-email" required autocomplete="off" />
+      <label for="signup-email">email</label>
+      <span class="bar"></span>
+    </div>
+    <div class="input-container">
+      <input type="password" id="signup-password" required autocomplete="off" />
+      <label for="signup-password">Password</label>
+      <span class="bar"></span>
+    </div>
+    <div class="input-container">
+      <input type="password" id="signup-confirm-password" required autocomplete="off" />
+      <label for="signup-confirm-password">Confirm Password</label>
+      <span class="bar"></span>
+    </div>
+    <div class="signup-message"></div>
+    <button class="signup-button" disabled>SIGNUP</button>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <script>
+    const $signinForm = document.querySelector('.signin-form');
+    const $signupForm = document.querySelector('.signup-form');
+    $signinForm.onsubmit = (() => {
+      const validationStatus = {
+        email: false,
+        password: false,
+        get valid() {
+          return this.email && this.password;
+        }
+      };
+      const $email = document.getElementById('signin-email');
+      const $password = document.getElementById('signin-password');
+      const $signinButton = document.querySelector('.signin-button');
+      $email.oninput = (() => {
+        const regexr = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        return _.debounce(({ target }) => {
+          const valid = regexr.test(target.value);
+          // email의 validation 상태가 변경되지 않았다면 무시한다.
+          if (validationStatus.email === valid) return;
+          validationStatus.email = valid;
+          $signinButton.disabled = !validationStatus.valid;
+        }, 300);
+      })();
+      $password.oninput = _.debounce(({ target }) => {
+        const valid = target.value.length > 5;
+        // password의 validation 상태가 변경되지 않았다면 무시한다.
+        if (validationStatus.password === valid) return;
+        validationStatus.password = valid;
+        $signinButton.disabled = !validationStatus.valid;
+      }, 300);
+      // submit 이벤트 핸들러
+      // $signinButton 버튼이 disable이면 submit 이벤트가 발생하지 않는다.
+      // 따라서 옳바른 email과 password가 입력되어 $signinButton 버튼이 활성화되지 않으면 submit 이벤트가 발생하지 않는다.
+      return async e => {
+        e.preventDefault();
+        console.log('[submit]', { id: $email.value, password: $password.value });
+        // TODO: Get jwt secret from server
+        const res = await fetch('/signin', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ id: $email.value, password: $password.value })
+        });
+      };
+    })();
+    document.querySelector('.signup-link > a').onclick = e => {
+      e.preventDefault();
+      $signinForm.style.display = 'none';
+      $signupForm.style.display = 'block';
+    };
+  </script>
+</body>
+</html>
