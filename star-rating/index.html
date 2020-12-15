@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star rating</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Open Sans';
+        font-weight: 300;
+      }
+      .title {
+        color: #db5b33;
+        font-weight: 300;
+        text-align: center;
+      }
+      .star-rating-widget {
+        width: 300px;
+        text-align: center;
+        margin: 0px auto;
+      }
+      .star-rating-widget > .star-checkbox {
+        display: none;
+      }
+      .star-rating-widget > .star-checkbox:checked + .star-checkbox-label .colored {
+        animation: enlarge 0.5s ease-in-out forwards;
+      }
+      .star-rating-widget
+        > .star-checkbox:checked
+        + .star-checkbox-label:nth-of-type(2)
+        > .colored {
+        animation-delay: 0.1s;
+      }
+      .star-rating-widget
+        > .star-checkbox:checked
+        + .star-checkbox-label:nth-of-type(3)
+        > .colored {
+        animation-delay: 0.2s;
+      }
+      .star-rating-widget
+        > .star-checkbox:checked
+        + .star-checkbox-label:nth-of-type(4)
+        > .colored {
+        animation-delay: 0.3s;
+      }
+      .star-rating-widget
+        > .star-checkbox:checked
+        + .star-checkbox-label:nth-of-type(5)
+        > .colored {
+        animation-delay: 0.4s;
+      }
+      .star-rating-widget > .star-checkbox-label {
+        position: relative;
+        display: inline-block;
+        margin: 8px 2px;
+        color: #dcdcdc;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+      }
+      .star-rating-widget > .star-checkbox-label:hover,
+      .star-rating-widget > .star-checkbox-label.hovered {
+        color: #a7a7a7;
+      }
+      .star-rating-widget > .star-checkbox-label > i {
+        font-size: 40px;
+      }
+      .star-rating-widget > .star-checkbox-label > i.colored {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #db5b33;
+        transform: scale(0);
+      }
+
+      @keyframes enlarge {
+        0% {
+          transform: scale(0);
+        }
+        70% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Star rating</h1>
+    <form class="star-rating-widget">
+      <input type="checkbox" class="star-checkbox" id="1" />
+      <label class="star-checkbox-label" for="1">
+        <i class="bx bxs-star"></i>
+        <i class="bx bxs-star colored"></i>
+      </label>
+      <input type="checkbox" class="star-checkbox" id="2" />
+      <label class="star-checkbox-label" for="2">
+        <i class="bx bxs-star"></i>
+        <i class="bx bxs-star colored"></i>
+      </label>
+      <input type="checkbox" class="star-checkbox" id="3" />
+      <label class="star-checkbox-label" for="3">
+        <i class="bx bxs-star"></i>
+        <i class="bx bxs-star colored"></i>
+      </label>
+      <input type="checkbox" class="star-checkbox" id="4" />
+      <label class="star-checkbox-label" for="4">
+        <i class="bx bxs-star"></i>
+        <i class="bx bxs-star colored"></i>
+      </label>
+      <input type="checkbox" class="star-checkbox" id="5" />
+      <label class="star-checkbox-label" for="5">
+        <i class="bx bxs-star"></i>
+        <i class="bx bxs-star colored"></i>
+      </label>
+    </form>
+    <script>
+      const $starRating = document.querySelector('.star-rating-widget');
+      const $starCheckboxes = document.querySelectorAll('.star-checkbox');
+      const $starCheckLabels = document.querySelectorAll('.star-checkbox-label');
+
+      $starRating.onchange = ({ target: { id } }) => {
+        $starCheckboxes.forEach($checkbox => {
+          $checkbox.checked = $checkbox.id <= id;
+        });
+      };
+
+      $starRating.onmouseover = ({ target }) => {
+        if (!target.matches('.star-checkbox-label > i')) return;
+
+        $starCheckLabels.forEach($label => {
+          if ($label.previousElementSibling.id <= target.parentNode.previousElementSibling.id) {
+            $label.classList.add('hovered');
+          }
+        });
+      };
+
+      $starRating.onmouseout = ({ target }) => {
+        if (!target.matches('.star-checkbox-label > i')) return;
+
+        $starCheckLabels.forEach($label => {
+          $label.classList.remove('hovered');
+        });
+      };
+    </script>
+  </body>
+</html>

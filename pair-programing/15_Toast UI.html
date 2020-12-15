@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Toast UI</title>
+  <style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+  body {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    background-color: #D6E1E5;
+  }
+
+  h1 {
+    color: #DB5B33;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  /* CSS 작성 바랍니다. */
+  </style>
+</head>
+<body>
+  <h1>JavaScript Toast</h1>
+
+  <button class="show-success">Success</button>
+  <button class="show-error">Error</button>
+  <button class="show-warning">Warning</button>
+
+  <div class="toast-container"></div>
+  <script>
+    const $success = document.querySelector('.show-success');
+    const $error = document.querySelector('.show-error');
+    const $warning = document.querySelector('.show-warning');
+
+    const $toastContainer = document.querySelector('.toast-container');
+
+    
+
+  </script>
+</body>
+</html>

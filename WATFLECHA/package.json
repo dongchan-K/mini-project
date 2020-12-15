@@ -1,0 +1,28 @@
+{
+  "name": "WHATFLECHA",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "json-server": "^0.16.3"
+  },
+  "description": "project start",
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanseul-lee/WHATFLECHA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanseul-lee/WHATFLECHA/issues"
+  },
+  "homepage": "https://github.com/hanseul-lee/WHATFLECHA#readme"
+}
