@@ -1,1 +1,1 @@
-React를 이용한 tic-tac-toe 클론코딩입니다.
+### React를 이용한 tic-tac-toe 클론코딩
