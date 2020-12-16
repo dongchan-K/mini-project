@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap" />
+    <script defer src="./js/login.js"></script>
+  </head>
+  <body>
+    <script src="./js/blocking.js"></script>
+    <main class="login-container">
+      <section class="login-section">
+        <h2 class="login-heading">로그인</h2>
+        <article class="login-box">
+          <label class="login-label" for="idInput"></label>
+          <input
+          id="idInput"
+          class="login-input"
+          type="text"
+          placeholder="아이디"
+          autocomplete="off"/>
+          <div class="id-error"></div>
+          <label class="login-label" for="pwInput"></label>
+          <input
+            id="pwInput"
+            class="login-input"
+            type="password"
+            placeholder="비밀번호"
+            autocomplete="off"/>
+            <div class="pw-error"></div>
+          <button class="login-btn">로그인</button>
+          <div class="user-error"></div>
+        </article>
+        <article class="join-box">
+          <span class="join-question">회원이 아니신가요?
+          </span>
+          <a class="join-link" href="#">회원가입</a>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

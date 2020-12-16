@@ -1,0 +1,386 @@
+{
+  "users": [
+    {
+      "id": "rladydals",
+      "pw": "rladydals",
+      "nickname": "김용민"
+    },
+    {
+      "id": "rladydals2",
+      "pw": "rladydals2",
+      "nickname": "김용민2"
+    },
+    {
+      "id": "test12345",
+      "pw": "test12345",
+      "nickname": "테스트"
+    },
+    {
+      "id": "test123456",
+      "pw": "test12345",
+      "nickname": "테스트"
+    },
+    {
+      "id": "test",
+      "pw": "test12345",
+      "nickname": "테스트"
+    },
+    {
+      "id": "rladydals123",
+      "pw": "123123123",
+      "nickname": "김용민123"
+    },
+    {
+      "id": "rladydals1",
+      "pw": "rladydals1",
+      "nickname": "김용민12"
+    },
+    {
+      "id": "rladydals09",
+      "pw": "rladydals",
+      "nickname": "ym002"
+    },
+    {
+      "id": "testtest",
+      "pw": "testtest",
+      "nickname": "test1234"
+    },
+    {
+      "id": "present123",
+      "pw": "present123",
+      "nickname": "조윤음악"
+    },
+    {
+      "id": "rlaehdcks",
+      "pw": "rlaehdcks",
+      "nickname": "동찬킴"
+    }
+  ],
+  "posts": [
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/t7X8qhESIfs/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=t7X8qhESIfs",
+        "title": "Wonder Girls - Tell Me, 원더걸스 - 텔미, Music Core 20070908",
+        "musicid": "t7X8qhESIfs"
+      },
+      "content": "텔미",
+      "title": "첫곡은 텔미",
+      "like": [
+        "rladydals"
+      ],
+      "scrap": [],
+      "likeLength": 1,
+      "scrapLength": 0,
+      "id": 1
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/3vVHy0XoIN4/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=3vVHy0XoIN4",
+        "title": "Wonder Girls &quot;Tell Me&quot; M/V",
+        "musicid": "3vVHy0XoIN4"
+      },
+      "content": "텔미텔미",
+      "title": "두번째도 텔미",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 2
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/Gvfgut8nAgw/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=Gvfgut8nAgw",
+        "title": "Wonderwall",
+        "musicid": "Gvfgut8nAgw"
+      },
+      "content": "hi",
+      "title": "wonderwall",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 3
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/E8TO8bxEXEs/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=E8TO8bxEXEs",
+        "title": "Oasis - Wonderwall [SACD Mix]",
+        "musicid": "E8TO8bxEXEs"
+      },
+      "content": "123123123",
+      "title": "youre my wonderwall",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 4
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/aHUk0qK-W6U/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=aHUk0qK-W6U",
+        "title": "LALALAY (날라리)",
+        "musicid": "aHUk0qK-W6U"
+      },
+      "content": "ㅎㅎ",
+      "title": "선미 -모범생",
+      "like": [
+        "rladydals2",
+        "rladydals"
+      ],
+      "scrap": [
+        "rladydals2"
+      ],
+      "likeLength": 2,
+      "scrapLength": 1,
+      "id": 5
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/m-XlaEC_e4g/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=m-XlaEC_e4g",
+        "title": "24 Hours",
+        "musicid": "m-XlaEC_e4g"
+      },
+      "content": "ㅇㄹㄴㅇㄹㄴㄴㄹㅇ",
+      "title": "24시간이 모자라",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 6
+    },
+    {
+      "writter": "rladydals",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/wz7DCWhey9o/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=wz7DCWhey9o",
+        "title": "누아르 (Noir)",
+        "musicid": "wz7DCWhey9o"
+      },
+      "content": "들어봐",
+      "title": "sunmi noir",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 7
+    },
+    {
+      "writter": "rladydals2",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/3Muu5XlzAaM/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=3Muu5XlzAaM",
+        "title": "[골라봐야지] ＂꼴 보기가 싫어!＂ 거침없는 소녀시대의 저격 타임! (feat. 상처만 남은 진실의 거울)｜아는형님",
+        "musicid": "3Muu5XlzAaM"
+      },
+      "content": "2dtdd",
+      "title": "2dtdd",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 8
+    },
+    {
+      "writter": "test1234",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/bJAlaIUmdsA/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=bJAlaIUmdsA",
+        "title": "2DT - Wonder Girls",
+        "musicid": "bJAlaIUmdsA"
+      },
+      "content": "명곡 ㅇㅈ...",
+      "title": "원더걸스 - 2 dt",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 9
+    },
+    {
+      "writter": "test1234",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/qlwPttH0gjw/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=qlwPttH0gjw",
+        "title": "Be My Baby (English Version)",
+        "musicid": "qlwPttH0gjw"
+      },
+      "content": "짱",
+      "title": "원걸",
+      "like": [],
+      "scrap": [
+        "test1234"
+      ],
+      "likeLength": 0,
+      "scrapLength": 1,
+      "id": 10
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/kjYU22znggc/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=kjYU22znggc",
+        "title": "[Audio/MP3] IU (아이유) - Blueming (블루밍) [5th Mini Album - &quot;Love Poem&quot;]",
+        "musicid": "kjYU22znggc"
+      },
+      "content": "아이유 노래 너무 좋아요!",
+      "title": "iu - blueming",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 11
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/TcbC9nJBlLc/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=TcbC9nJBlLc",
+        "title": "Dali, Van, Picasso",
+        "musicid": "TcbC9nJBlLc"
+      },
+      "content": "빈지노 홍진호",
+      "title": "beenzino - dali,van,picasso",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 12
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/aa1iMb-2TJ8/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=aa1iMb-2TJ8",
+        "title": "BOL4 (볼빨간사춘기) - 여행 (Travel) [MP3 Audio] [Red Diary Page.2]",
+        "musicid": "aa1iMb-2TJ8"
+      },
+      "content": "ㅠㅠㅠㅠㅠ",
+      "title": "볼빨간 사춘기 - 여행",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 13
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/BzQS64oqvGI/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=BzQS64oqvGI",
+        "title": "백예린 (Yerin Baek) - 우주를 건너 (Across the universe) [MP3 Audio]",
+        "musicid": "BzQS64oqvGI"
+      },
+      "content": "우주를 건너",
+      "title": "백예린 - 우주를 건너",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 14
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/bW3XExLBf7A/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=bW3XExLBf7A",
+        "title": "Standing EGG - 오래된 노래",
+        "musicid": "bW3XExLBf7A"
+      },
+      "content": "오래전에 함께듣던 노래가....",
+      "title": "스탠딩 에그 - 오래된 노래",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 15
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/rWpnZafjauU/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=rWpnZafjauU",
+        "title": "BLUE",
+        "musicid": "rWpnZafjauU"
+      },
+      "content": "팝송",
+      "title": "troy sivan - Blue",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 16
+    },
+    {
+      "writter": "present123",
+      "date": "2020-11-20",
+      "music": {
+        "thumbnail": "https://i.ytimg.com/vi/u_672V85_jI/mqdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=u_672V85_jI",
+        "title": "9. 불변 객체",
+        "musicid": "u_672V85_jI"
+      },
+      "content": "들으면 들을수록 좋은 곡!",
+      "title": "Ungmo Lee - 불변 객체",
+      "like": [],
+      "scrap": [],
+      "likeLength": 0,
+      "scrapLength": 0,
+      "id": 17
+    }
+  ],
+  "mymusic": [
+    {
+      "id": "rladydals",
+      "thumbnail": "https://i.ytimg.com/vi/t7X8qhESIfs/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=t7X8qhESIfs"
+    },
+    {
+      "id": "rladydals2",
+      "thumbnail": "https://i.ytimg.com/vi/-ikYiWp0H5g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=-ikYiWp0H5g"
+    },
+    {
+      "id": "test1234",
+      "thumbnail": "https://i.ytimg.com/vi/D1PvIWdJ8xo/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=D1PvIWdJ8xo"
+    },
+    {
+      "id": "rlaehdcks",
+      "thumbnail": "https://i.ytimg.com/vi/WbhK3wMXluE/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=WbhK3wMXluE"
+    },
+    {
+      "id": "rladydals1",
+      "thumbnail": "https://i.ytimg.com/vi/-ikYiWp0H5g/mqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=-ikYiWp0H5g"
+    }
+  ]
+}

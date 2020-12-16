@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Jua&display=swap');
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Jua';
+  width: 375px;
+  margin: 0 auto;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: 'Jua';
+  color: #fff;
+  letter-spacing: 1px;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+.container-box {
+  background: url(../image/login-bg.jpg);
+  background-size: cover;
+  height: 100%;
+  animation: bgmove 25s linear infinite forwards;
+}
+@keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+.design-container {
+  line-height: 30vh;
+  width: 375px;
+  text-align: center;
+}
+
+.design-container img {
+  width: 130px;
+  border-radius: 10px;
+  opacity: 0.7;
+  vertical-align: bottom;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px #1c2866, -5px -5px 5px #1c2866;
+}
+
+.signup {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 35px;
+  padding: 20px;
+  margin-top: 5vh;
+  border-radius: 20px;
+}
+
+.signup-heading {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.signup-wrapper {
+  width: 230px;
+  margin: 0 auto;
+}
+
+
+.signup-items input::placeholder {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.signup-items input {
+  background-color: #fff;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 30px;
+}
+
+.signup-items input:focus {
+  outline: none;
+  box-shadow: 0 0 2pt 4pt #ab40f7;
+}
+
+.signup-btn {
+  letter-spacing: 2px;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 0;
+  border-radius: 30px;
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Jua';
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.signup-btn:focus {
+  outline: none;
+}
+
+.focus-btn {
+  transition-duration: 0.5s;
+  color: #fff;
+}
+
+.id-error,
+.pw-error,
+.check-pw-error,
+.nickname-error {
+  color: #dbdb30;
+  height: 35px;
+  font-family: 'Nanum Gothic';
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
