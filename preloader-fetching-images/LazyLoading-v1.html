@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      img {
+        width: 300px;
+        min-height: 300px;
+        display: block;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 가시성 확보 예제 -->
+    <img class="lazy" src="img/blank.gif" data-src="https://picsum.photos/300" />
+    <img class="lazy" src="img/blank.gif" data-src="https://picsum.photos/300" />
+    <img class="lazy" src="img/blank.gif" data-src="https://picsum.photos/300" />
+    <img class="lazy" src="img/blank.gif" data-src="https://picsum.photos/300" />
+    <img class="lazy" src="img/blank.gif" data-src="https://picsum.photos/300" />
+    <script>
+      const lazyLoad = (() => {
+        const isVisible = $img => {
+          const rect = $img.getBoundingClientRect();
+          if (!rect.width || !rect.height) return false;
+          const viewportWidth = document.documentElement.clientWidth;
+          const viewportHeight = document.documentElement.clientHeight;
+          const top = rect.top >= 0 && rect.top < viewportHeight;
+          const bottom = rect.bottom >= 0 && rect.bottom < viewportHeight;
+          const left = rect.left >= 0 && rect.left < viewportWidth;
+          const right = rect.right >= 0 && rect.right < viewportWidth;
+          return (top || bottom) && (left || right);
+        };
+        return () => {
+          console.log('event');
+          const $imgs = document.querySelectorAll('img.lazy');
+          $imgs.forEach($img => {
+            if (isVisible($img)) {
+              $img.src = $img.dataset.src;
+              $img.classList.remove('lazy');
+              $img.removeAttribute('data-src');
+            }
+          });
+          if (!$imgs.length) {
+            window.onscroll = null;
+            window.onresize = null;
+          }
+        };
+      })();
+      document.addEventListener('DOMContentLoaded', lazyLoad);
+      // TODO: 쓰로틀 적용
+      window.onscroll = lazyLoad;
+      window.onresize = lazyLoad;
+    </script>
+  </body>
+</html>

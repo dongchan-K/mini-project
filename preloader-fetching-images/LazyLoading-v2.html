@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy load</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Open Sans';
+        font-weight: 300;
+      }
+      .title {
+        color: #db5b33;
+        font-weight: 300;
+        text-align: center;
+      }
+      .images-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        width: 620px;
+        margin: 0 auto;
+      }
+      .images-container img {
+        width: 100%;
+        /* min-height: 200px; */
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+      }
+      .scroll-observer {
+        text-align: center;
+        margin: 10px;
+        /* 박스 영역을 갖게 하기 위해 display: none; 대신 visibility: hidden;을 사용한다. */
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Intersection Observer API를 활용한 가시성 확보 예제 -->
+    <h1 class="title">Lazy load</h1>
+    <div class="images-container"></div>
+    <!--
+      이 요소가 뷰포트에 교차되면 infinite scroll을 위해 이미지 정보를 패치해서 img 요소들을 생성한다.
+      이 방법을 사용하면 뷰포트의 끝까지 스크롤되었는지 확인하기 위해 scroll 이벤트를 캐치할 필요가 없다.
+    -->
+    <div class="scroll-observer">
+      <img src="img/ball-triangle.svg" alt="Loading..." />
+    </div>
+    <script>
+      const lazyLoad = (() => {
+        const FETCHING_IMAGES_COUNT = 21; // 패치할 이미지 갯수
+        let page = 0;
+        const createImgs = async () => {
+          const res = await fetch(
+            `https://picsum.photos/v2/list?page=${page++}&limit=${FETCHING_IMAGES_COUNT}`
+          );
+          const images = await res.json();
+          const $imgs = images.map(({ download_url: url }) => {
+            const $img = new Image();
+            $img.classList.add('lazy');
+            $img.src = 'img/blank.gif';
+            $img.dataset.src = url;
+            return $img;
+          });
+          const $fragment = document.createDocumentFragment();
+          $imgs.forEach($img => $fragment.appendChild($img));
+          document.querySelector('.images-container').appendChild($fragment);
+        };
+        return async () => {
+          try {
+            await createImgs();
+            // IntersectionObserver 생성자 함수에게 전달한 콜백 함수는 다음의 경우 호출된다.
+            // 1. 관찰 대상(target 요소)으로 html 요소가 등록
+            // 2. target 요소의 가시성에 변화 발생
+            const io = new IntersectionObserver((entries, observer) => {
+              entries.forEach(({ target: $img, isIntersecting }) => {
+                if (!isIntersecting) return;
+                // img 요소의 src 값에 dataset.src 값을 할당해 이미지 파일 로드를 개시한다.
+                $img.src = $img.dataset.src;
+                $img.removeAttribute('data-src');
+                $img.classList.remove('lazy');
+                // 이미 뷰포트에 교차된 targrt 요소는 더이상 관찰하지 않는다.
+                observer.unobserve($img);
+              });
+            });
+            // 모든 img.lazy 요소의 가시성을 관찰한다.
+            document.querySelectorAll('img.lazy').forEach($img => io.observe($img));
+          } catch (e) {
+            console.error(e);
+          }
+        };
+      })();
+      document.addEventListener('DOMContentLoaded', lazyLoad);
+    </script>
+  </body>
+</html>
