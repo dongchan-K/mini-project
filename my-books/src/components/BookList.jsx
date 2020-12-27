@@ -5,6 +5,9 @@ import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import BookItem from './BookItem';
 
+import { StyledGlobal, StyledHeader, StyledMybooks, StyledAddBookButton, 
+        StyledLogOut, StyledMain, StyledWrapper } from '../components/Styled';
+
 export default class BookList extends React.Component {
 
   state = {
@@ -15,7 +18,6 @@ export default class BookList extends React.Component {
 
   render() {
     const { books, loading, error } = this.state;
-
     
     if (error !== null) {
       const errorType = error.response.data.error;
@@ -37,14 +39,24 @@ export default class BookList extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Book List {loading && <LoadingOutlined />}</h1>
-        {books.length === 0 && <p>데이터가 없습니다.</p>}
-        {books.length !== 0 && 
-          books.map(book => {
-              return <BookItem {...book}  />; 
-        })}
-      </div>
+      <>
+        <StyledGlobal></StyledGlobal>
+        <StyledWrapper>
+          <StyledHeader>
+              <StyledMybooks>My Books {loading && <LoadingOutlined />}</StyledMybooks>
+              <StyledAddBookButton>책 추가하기</StyledAddBookButton>
+              <StyledLogOut>로그아웃</StyledLogOut>
+              {books.length === 0 && <p>데이터가 없습니다.</p>}
+          </StyledHeader>
+        
+          <StyledMain>
+            {books.length !== 0 && 
+              books.map(book => {
+                return <BookItem {...book}  />
+            })}
+          </StyledMain>
+        </StyledWrapper>
+      </>
     );
   }
 
