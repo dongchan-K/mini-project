@@ -21,7 +21,6 @@ const StyledGlobal = createGlobalStyle`
   ul,
   ol,
   li {
-  
     margin: 0;
     padding: 0;
     list-style: none;
@@ -74,21 +73,17 @@ const StyledAddBookButton = styled.button`
 
 const StyledLogOut = styled.button`
   background-color: #fff;
+  color: #370d00;
   position: absolute;
   right: 0;
   top: 0;
   width: 120px;
   height: 35px;
-  color: #370d00;
   font-size: 1.4rem;
   font-weight: 700;
   padding: 10px 20px;
   margin-right: 10px;
   border-radius: 5px;
-`
-
-const StyledMain = styled.main`
-  
 `
 
 const StyledBookWrapper = styled.div`
@@ -133,26 +128,11 @@ const StyledBookMesseage = styled.p`
   margin-bottom: 30px;
 `
 
-const StyledButtonWrapper = styled.div`
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-`
-
-const StyledEditButton = styled.button`
+const StyledCommonButton = styled.button`
   margin-right: 10px;
   padding: 5px;
 `
 
-const StyledDeleteButton = styled.button`
-  margin-right: 10px;
-  padding: 5px;
-  border-
-  &:hover {
-    underline: red;
-  }
-`
-
-export { StyledGlobal, StyledWrapper, StyledHeader, StyledMybooks, StyledAddBookButton, StyledLogOut, StyledMain, 
+export { StyledGlobal, StyledWrapper, StyledHeader, StyledMybooks, StyledAddBookButton, StyledLogOut, 
         StyledBookWrapper, StyledBookTitle, StyledBookAuthor, StyledBookImage, StyledBookMesseage,
-        StyledButtonWrapper, StyledEditButton, StyledDeleteButton };
+        StyledCommonButton };

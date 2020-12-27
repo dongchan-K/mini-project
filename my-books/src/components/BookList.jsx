@@ -6,7 +6,7 @@ import { Button } from 'antd';
 import BookItem from './BookItem';
 
 import { StyledGlobal, StyledHeader, StyledMybooks, StyledAddBookButton, 
-        StyledLogOut, StyledMain, StyledWrapper } from '../components/Styled';
+        StyledLogOut, StyledWrapper } from '../components/Styled';
 
 export default class BookList extends React.Component {
 
@@ -51,12 +51,12 @@ export default class BookList extends React.Component {
               {books.length === 0 && <p>데이터가 없습니다.</p>}
           </StyledHeader>
         
-          <StyledMain>
+          <main>
             {books.length !== 0 && 
               books.map(book => {
                 return <BookItem {...book}  />
             })}
-          </StyledMain>
+          </main>
         </StyledWrapper>
       </>
     );
