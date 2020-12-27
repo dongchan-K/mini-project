@@ -44,7 +44,7 @@ const StyledWrapper = styled.div`
   width: 940px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient( 45deg, #847072, #bd826e );
+  background: linear-gradient( 45deg, #847072, #d8b484 );
 `
 
 const StyledHeader = styled.header`
@@ -65,7 +65,9 @@ const StyledAddBookButton = styled.button`
   color: #fff;
   font-size: 1.4rem;
   font-weight: 700;
-  padding: 10px 30px;
+  width: 120px;
+  height: 35px;
+  padding: 10px 20px;
   margin-bottom: 10px;
   border-radius: 5px;
 `
@@ -75,10 +77,12 @@ const StyledLogOut = styled.button`
   position: absolute;
   right: 0;
   top: 0;
+  width: 120px;
+  height: 35px;
   color: #370d00;
   font-size: 1.4rem;
   font-weight: 700;
-  padding: 10px 30px;
+  padding: 10px 20px;
   margin-right: 10px;
   border-radius: 5px;
 `

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { sleep } from '../utils';
-import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
+import { LoadingOutlined, ReloadOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import BookItem from './BookItem';
 
@@ -45,7 +45,9 @@ export default class BookList extends React.Component {
           <StyledHeader>
               <StyledMybooks>My Books {loading && <LoadingOutlined />}</StyledMybooks>
               <StyledAddBookButton>책 추가하기</StyledAddBookButton>
-              <StyledLogOut>로그아웃</StyledLogOut>
+              <StyledLogOut>로그아웃
+                <LogoutOutlined style={{marginLeft: '10px'}}/>
+              </StyledLogOut>
               {books.length === 0 && <p>데이터가 없습니다.</p>}
           </StyledHeader>
         
