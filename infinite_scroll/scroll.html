@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        width: 620px;
+        margin: 0 auto;
+      }
+      .container img {
+        width: 100%;
+        /* min-height: 200px; */
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div id="loader"></div>
+    <script>
+      const count = 9;
+      let index = 0;
+
+      const loadImages = async () => {
+        const $fragment = document.createDocumentFragment();
+        const res = await fetch(
+          `https://picsum.photos/v2/list?page=${index++}&limit=${count}`
+        );
+
+        const images = await res.json();
+
+        images.forEach(img => {
+          const item = document.createElement('img');
+          item.setAttribute('src', img.download_url);
+          $fragment.appendChild(item);
+        });
+
+        document.querySelector('.container').appendChild($fragment);
+      };
+
+      const observer = new IntersectionObserver(([loader]) => {
+        if (!loader.isIntersecting) return;
+
+        loadImages();
+      });
+
+      loadImages();
+      observer.observe(document.getElementById('loader'));
+    </script>
+  </body>
+</html>

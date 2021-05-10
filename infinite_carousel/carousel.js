@@ -13,10 +13,11 @@ $carouselWrapper.appendChild($firstcarousel);
 // 마지막 캐러셀 복제해서 전체 캐러셀 맨 앞에 붙인다
 $carouselWrapper.insertAdjacentElement("afterbegin", $lastcarousel);
 
-const slideSpeed = 300;
 const carouselWidth = 500;
-let isMove = false;
 let slideIndex = 2;
+
+// translate3D를 사용하면 GPU 기반이기 때문에 성능면에서 좋다.
+// requestAnimationFrame는 브라우저가 주사율을 파악해서 해당만큼만 동작하게 한다. -> 최적화면에서 좋다
 
 // 이전 슬라이드
 $prevBtn.onclick = _.throttle(() => {
@@ -27,9 +28,9 @@ $prevBtn.onclick = _.throttle(() => {
       $carouselWrapper.style.transform = `translateX(-2500px)`;
       slideIndex = 7;
       slideIndex--;
-    }, slideSpeed);
+    }, 300);
   }
-  $carouselWrapper.style.transition = `${slideSpeed}ms`;
+  $carouselWrapper.style.transition = `300ms`;
   $carouselWrapper.style.transform = `translateX(-${carouselWidth * (slideIndex - 1)}px)`;
 }, 500);
 
@@ -42,8 +43,8 @@ $nextBtn.onclick = _.throttle(() => {
       $carouselWrapper.style.transform = `translateX(-500px)`;
       slideIndex = 1;
       slideIndex++;
-    }, slideSpeed);
+    }, 300);
   }
-  $carouselWrapper.style.transition = `${slideSpeed}ms`;
+  $carouselWrapper.style.transition = `300ms`;
   $carouselWrapper.style.transform = `translateX(-${carouselWidth * (slideIndex - 1)}px)`;
 }, 500);

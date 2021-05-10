@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정적인 WebSite_TODOS</title>
+    <style>
+      .container {
+        width: 300px;
+        margin: 200px auto;
+      }
+      .todos {
+        list-style-type: none;
+        padding: 0;
+      }
+      .todos > li > label > span {
+        display: inline-block;
+        width: 135px;
+        padding: 0 20px;
+      }
+      .todos > li > label > input[type='checkbox']:checked + span {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input class="input-todo" type="text" placeholder="enter todo!" />
+      <button class="add">add</button>
+      <ul class="todos">
+        <!-- <li>
+          <label><input type="checkbox" /><span>HTML</span></label>
+          <button class="remove">X</button>
+        </li> -->
+      </ul>
+    </div>
+    <script>
+      const $inputTodo = document.querySelector('.input-todo');
+      const $add = document.querySelector('.add');
+      const $todos = document.querySelector('.todos');
+      const $button = document.querySelector('button');
+
+      const addTodo = content => {
+        // innerHTML 활용하는 방식
+        $todos.innerHTML =
+          `<li>
+          <label><input type="checkbox"><span>${content}</span></label>
+          <button class="remove">X</button>
+        </li>` + $todos.innerHTML;
+
+        // 요소 하나하나 만드는 방식
+        // const $li = document.createElement('li');
+        // const $label = document.createElement('label');
+        // const $input = document.createElement('input');
+        // const $span = document.createElement('span');
+        // const $button = document.createElement('button');
+
+        // $input.setAttribute('type', 'checkbox');
+        // $button.classList.add('remove');
+        // $span.textContent = content;
+        // $button.textContent = 'X';
+        // $label.appendChild($input);
+        // $label.appendChild($span);
+        // $li.appendChild($label);
+        // $li.appendChild($button);
+        // $todos.insertBefore($li, $todos.firstElementChild);
+      };
+
+      $inputTodo.onkeypress = e => {
+        if (e.key !== 'Enter' || !$inputTodo.value) return;
+        addTodo($inputTodo.value);
+        $inputTodo.value = '';
+      };
+
+      $add.onclick = () => {
+        addTodo($inputTodo.value);
+        $inputTodo.value = '';
+        $inputTodo.focus();
+      };
+
+      $todos.onclick = e => {
+        if (!e.target.matches('.todos>li>.remove')) return;
+        $todos.removeChild(e.target.parentNode);
+      };
+    </script>
+  </body>
+</html>
