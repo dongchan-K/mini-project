@@ -15,43 +15,43 @@ const $activeTodos = document.querySelector('.active-todos');
 const request = {
   get(url) {
     return fetch(url)
-      .then(res => res.json())
-      .then(_todos => todos = _todos)
+      .then((res) => res.json())
+      .then((_todos) => (todos = _todos))
       .then(render)
-      .catch(console.error)
+      .catch(console.error);
   },
 
   post(url, payload) {
     return fetch(url, {
       method: 'POST',
-      headers: {'Content-type': 'application/json'},
-      body: JSON.stringify(payload)
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(payload),
     })
-      .then(res => res.json())
-      .then(_todos => todos = _todos)
+      .then((res) => res.json())
+      .then((_todos) => (todos = _todos))
       .then(render)
-      .catch(console.error)
+      .catch(console.error);
   },
 
   patch(url, payload) {
     return fetch(url, {
       method: 'PATCH',
-      headers: {'Content-type': 'application/json'},
-      body: JSON.stringify(payload)
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(payload),
     })
-      .then(res => res.json())
-      .then(_todos => todos = _todos)
+      .then((res) => res.json())
+      .then((_todos) => (todos = _todos))
       .then(render)
-      .catch(console.error)
+      .catch(console.error);
   },
 
   delete(url) {
-    return fetch(url, {method: 'DELETE'})
-      .then(res => res.json())
-      .then(_todos => todos = _todos)
+    return fetch(url, { method: 'DELETE' })
+      .then((res) => res.json())
+      .then((_todos) => (todos = _todos))
       .then(render)
-      .catch(console.error)
-  }
+      .catch(console.error);
+  },
 };
 
 // Dom 및 리소스 로딩 이벤트 핸들러
@@ -61,8 +61,10 @@ const fetchTodo = () => {
 
 // checked 상태 카운팅 이벤트 핸들러
 const itemCheck = () => {
-  $completedTodos.textContent = todos.filter(({completed}) => completed).length;
-  $activeTodos.textContent = todos.filter(({completed}) => !completed).length;
+  $completedTodos.textContent = todos.filter(
+    ({ completed }) => completed,
+  ).length;
+  $activeTodos.textContent = todos.filter(({ completed }) => !completed).length;
 };
 
 // render 이벤트 핸들러
@@ -70,11 +72,19 @@ const render = () => {
   let html = '';
 
   // navState에 따라 다르게 렌더링하기 위한 반복문
-  const _todos = todos.filter(todo => navState === 'completed' ? todo.completed : navState === 'active' ? !todo.completed : true)
+  const _todos = todos.filter((todo) =>
+    navState === 'completed'
+      ? todo.completed
+      : navState === 'active'
+      ? !todo.completed
+      : true,
+  );
 
-  _todos.forEach(({id, content, completed}) => {
+  _todos.forEach(({ id, content, completed }) => {
     html += `<li id="${id}" class="todo-item">
-    <input id="ck-${id}" class="checkbox" type="checkbox" ${completed ? 'checked' : ''}>
+    <input id="ck-${id}" class="checkbox" type="checkbox" ${
+      completed ? 'checked' : ''
+    }>
     <label for="ck-${id}">${content}</label>
     <i class="remove-todo far fa-times-circle"></i>
   </li>`;
@@ -85,17 +95,22 @@ const render = () => {
 };
 
 // Id 이벤트 핸들러
-const generateNextId = () => todos.length ? Math.max(...todos.map(todo => todo.id)) + 1 : 1
+const generateNextId = () =>
+  todos.length ? Math.max(...todos.map((todo) => todo.id)) + 1 : 1;
 
 // 로딩 이벤트
 window.onload = fetchTodo;
 
 // 입력창 이벤트
-$inputTodo.onkeyup = e => {
+$inputTodo.onkeyup = (e) => {
   if (e.key !== 'Enter') return;
 
   // 입력된 todo의 값을 할당하기 위한 변수
-  const newTodo = { id: generateNextId(), content: `${$inputTodo.value}`, completed: false };
+  const newTodo = {
+    id: generateNextId(),
+    content: `${$inputTodo.value}`,
+    completed: false,
+  };
 
   // 입력된 todo의 값을 server에 반영
   request.post('/todos', newTodo);
@@ -105,7 +120,7 @@ $inputTodo.onkeyup = e => {
 };
 
 // 개별 체크박스 이벤트
-$todos.onchange = e => {
+$todos.onchange = (e) => {
   // 현재 클릭한 체크박스의 id를 획득하기 위한 변수
   const newId = e.target.parentNode.id;
 
@@ -114,12 +129,12 @@ $todos.onchange = e => {
 };
 
 // 전체선택 체크박스 이벤트
-$completeAll.onchange = e => {
+$completeAll.onchange = (e) => {
   request.patch('/todos', { completed: e.target.checked });
 };
 
 // 개별 삭제 이벤트
-$todos.onclick = e => {
+$todos.onclick = (e) => {
   // 이벤트 타겟이 remove-todo 클래스를 갖지 않는다면 반환
   if (!e.target.matches('.remove-todo')) return;
   // 현재 클릭한 요소의 id를 획득하기 위한 변수
@@ -130,12 +145,12 @@ $todos.onclick = e => {
 };
 
 // 전체 삭제 이벤트
-$btn.onclick = e => {
+$btn.onclick = (e) => {
   // completed가 true인 모든 요소 server에서 삭제
   request.delete('/todos/completed');
 };
 
-$nav.onclick = e => {
+$nav.onclick = (e) => {
   // active 클래스 모두 제거
   document.querySelector('.active').classList.remove('active');
 
